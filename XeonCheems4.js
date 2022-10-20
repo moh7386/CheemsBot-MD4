@@ -240,12 +240,12 @@ module.exports = XeonBotInc = async (XeonBotInc, m, chatUpdate, store) => {
         const participants = m.isGroup ? await groupMetadata.participants : ''
         const groupAdmins = m.isGroup ? await participants.filter(v => v.admin !== null).map(v => v.id) : ''
         const groupOwner = m.isGroup ? groupMetadata.owner : ''
-    	const isBotAdmins = m.isGroup ? groupAdmins.includes(botNumber) : false
-    	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
+    	const isBotAdmins = m.isGroup ? groupAdmins.includes(botNumber) : true
+    	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : true
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
-        const AntiLink = m.isGroup ? ntilink.includes(from) : false
-const AntiLinkYoutubeVid = m.isGroup ? ntilinkytvid.includes(from) : false
-const AntiLinkYoutubeChannel = m.isGroup ? ntilinkytch.includes(from) : false
+        const AntiLink = m.isGroup ? ntilink.includes(from) : true
+const AntiLinkYoutubeVid = m.isGroup ? ntilinkytvid.includes(from) : true
+const AntiLinkYoutubeChannel = m.isGroup ? ntilinkytch.includes(from) : true
 const AntiLinkInstagram = m.isGroup ? ntilinkig.includes(from) : false
 const AntiLinkFacebook = m.isGroup ? ntilinkfb.includes(from) : false
 const AntiLinkTiktok = m.isGroup ? ntilinktt.includes(from) : false
